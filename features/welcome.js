@@ -20,7 +20,7 @@ module.exports = (client) => {
 
         const embed = new EmbedBuilder()
             .setColor(0x2a2d31)
-            .setTitle("heyy " + member.user.username)
+            .setTitle("heyy")
             .setDescription("thank you for joining <a:3m_kiss:1077472269888143492>\n﹒you can get some roles [here](https://discord.com/channels/1077063223410446336/1077063223972466704)!")
             .setThumbnail("https://i.imgur.com/4mPNfDx.png")
             .setFooter({
@@ -30,7 +30,7 @@ module.exports = (client) => {
 
         const channel = client.channels.cache.get("1077063223972466707");
         channel.send({
-            content: "<@" + member.user + ">",
+            content: "<@" + member.user + "> // <@&1080307997751918642> <a:3m_wave:1077472279778304081>",
             embeds: [embed]
         });
     });
