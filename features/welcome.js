@@ -24,8 +24,7 @@ module.exports = (client) => {
             .setDescription("thank you for joining <a:3m_kiss:1077472269888143492>\n﹒you can get some roles [here](https://discord.com/channels/1077063223410446336/1077063223972466704)!")
             .setThumbnail("https://i.imgur.com/4mPNfDx.png")
             .setFooter({
-                text: member.guild.memberCount + suffix + " member",
-                iconURL: member.guild.iconURL()
+                text: member.guild.memberCount + suffix + " member"
             });
 
         const channel = client.channels.cache.get("1077063223972466707");
