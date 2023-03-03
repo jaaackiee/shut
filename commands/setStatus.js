@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits, ActivityType } = require("discord.js");
-const mongoose = require("mongoose");
+const Status = require("../schemas/statusSchema.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -39,20 +39,17 @@ module.exports = {
 
         interaction.client.user.setActivity(value, { type });
 
-        const Status = mongoose.model("Status", { _id: String, type: String, status: String });
-
-        const stat = Status.findOneAndUpdate({
+        await Status.findOneAndUpdate({
             _id: "status"
         }, {
             _id: "status",
-            type: type,
+            type: interaction.options.getString("type"),
             status: value
         }, {
             upsert: true,
             new: true,
             useFindAndModify: false
         });
-        stat.save().then(() => console.log('meow'));
 
         await interaction.reply({
             content: "Set bot status to: **" + interaction.options.getString("type") + " " + value + "**!",
